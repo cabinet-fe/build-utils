@@ -31,4 +31,5 @@ export async function updateVersion(pkgJSONPath: string) {
   await writeFile(pkgJSONPath, JSON.stringify(pkgJson, null, 2), 'utf-8')
   await $`git add .`
   await $`git commit -m 'release: 包${pkgJson.name}发布${targetVersion}版本'`
+  await $`git push`
 }
