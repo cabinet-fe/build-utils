@@ -32,7 +32,7 @@ export async function updateVersion(pkgJSONPath: string) {
 
   const text =
     await $`git commit -m 'release: 包${pkgJson.name}发布${targetVersion}版本' --allow-empty --all`.text(
-      'utf-8'
+      'base64'
     )
 
   console.log(text)
