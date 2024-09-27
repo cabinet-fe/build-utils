@@ -16,7 +16,7 @@ export async function updateVersion(pkgJSONPath: string) {
     targetVersion: string
   }>({
     type: 'select',
-    message: `选择升级的版本, 当前 ${pic.blue(pkgJson.version)}`,
+    message: `选择升级的版本, 当前${pic.blue(pkgJson.version)}。`,
     name: 'targetVersion',
     choices: [
       { name: `主版本 ${nextMajor}`, value: nextMajor },
@@ -31,7 +31,7 @@ export async function updateVersion(pkgJSONPath: string) {
   await writeFile(pkgJSONPath, JSON.stringify(pkgJson, null, 2), 'utf-8')
 
   const text =
-    await $`git commit -m 'release: ${pkgJson.name}发布${targetVersion}版本' --allow-empty --all`.text(
+    await $`git commit -m 'release: ${pkgJson.name}发布${targetVersion}版本' --allow-empty --all `.text(
       'utf8'
     )
 
