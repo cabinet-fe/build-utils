@@ -1,0 +1,24 @@
+{
+  "name": "build-utils",
+  "module": "src/index.ts",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "bun ./build.js"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "inquirer": "^11.0.2",
+    "picocolors": "^1.1.0"
+  }
+}
