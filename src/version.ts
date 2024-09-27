@@ -35,7 +35,13 @@ export async function updateVersion(pkgJSONPath: string) {
       'utf8'
     )
 
-  console.log(text)
+  // 实现unicode转中文
+
+  console.log(
+    text.replace(/\\u([0-9a-fA-F]{4})/g, (_, $1) =>
+      String.fromCharCode(parseInt($1, 16))
+    )
+  )
 
   await $`git push`
 }
