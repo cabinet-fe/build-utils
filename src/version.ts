@@ -30,13 +30,11 @@ export async function updateVersion(pkgJSONPath: string) {
 
   await writeFile(pkgJSONPath, JSON.stringify(pkgJson, null, 2), 'utf-8')
 
-  const text =
-    await $`git commit --allow-empty --all -m 'release: $PKG_NAME 发布$PKG_VERSION版本'`
-      .env({
-        PKG_NAME: pkgJson.name,
-        PKG_VERSION: targetVersion
-      })
-      .text('utf8')
+  const text = await $`git commit --allow-empty --all -m $MSG`
+    .env({
+      MSG: `release: ${pkgJson.name}发布${targetVersion}版本`
+    })
+    .text('utf8')
 
   // 实现unicode转中文
 
