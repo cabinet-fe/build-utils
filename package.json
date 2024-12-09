@@ -1,7 +1,7 @@
 {
   "name": "@helper/build",
   "module": "src/index.ts",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "scripts": {
     "release": "bun ./build.js"
